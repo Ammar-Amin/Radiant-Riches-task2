@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task_2</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <srcipt src="gsap.js"></srcipt>
+  <script>
+    var path = document.querySelector("#Opaque_Ring");
+    var pathLength = path.getTotalLength();
+    path.style.strokeDasharray = pathLength + ' ' + pathLength;
+    path.style.strokeDashoffset = pathLength;
+    path.getBoundingClientRect();
+    window.addEventListener('scroll', function (e) {
+      var scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+      var drawLength = pathLength * scrollPercentage;
+      path.style.strokeDashoffset = pathLength - drawLength;
+      if (scrollPercentage >= .99) {
+        path.style.strokeDasharray = 'none';
+      } else {
+        path.style.strokeDasharray = pathLength + ' ' + pathLength;
+      }
+    })
+  </script>
+</body>
+
+</html>

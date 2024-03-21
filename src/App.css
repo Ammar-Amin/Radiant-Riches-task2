@@ -1,0 +1,26 @@
+.scroll-container {
+    position: fixed;
+    margin-top: -37px;
+    height: 9px;
+    width: 100%;
+}
+
+.scroll-bar {
+    height: 9px;
+    width: 1%;
+    background-color: red;
+}
+
+@media (max-width: 425px) {
+    .pages {
+        width: 100%;
+        height: 100px;
+        display: flex;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: 400px;
+    }
+
+}
